@@ -1,0 +1,406 @@
+/* =========================================
+   Índice
+   1. Variables y Reset
+   2. Clases Utilitarias
+   3. Layout Principal (Header, Main)
+   4. Componentes: Buscador y Navegación
+   5. Componentes: Aside (Menú Lateral)
+   6. Componentes: Grilla y Tarjetas de Video
+   7. Media Queries (Responsive)
+   ========================================= */
+
+/* =========================================
+   1. Variables y Reset
+   ========================================= */
+:root {
+    --fondo-pagina: #ffffff;
+    --texto-principal: #0f0f0f;
+    --texto-gris: #606060;
+    --color-borde: #cccccc;
+    --fondo-hover: #f2f2f2;
+    --fondo-activo: #000000;
+    --texto-activo: #ffffff;
+    --tipo-fuente: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--tipo-fuente);
+    background-color: var(--fondo-pagina);
+    color: var(--texto-principal);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina el espacio fantasma debajo de las imágenes */
+}
+
+/* =========================================
+   2. Clases Utilitarias
+   ========================================= */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Mejora de accesibilidad: outline visible al navegar con teclado (Tab) */
+:focus-visible {
+    outline: 2px solid #065fd4;
+    outline-offset: 2px;
+}
+
+/* =========================================
+   3. Layout Principal
+   ========================================= */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--fondo-pagina);
+    z-index: 100;
+}
+
+.main {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem;
+    /* Evita que el contenedor colapse en pantallas pequeñas */
+    align-items: flex-start; 
+}
+
+/* Nuevo contenedor para agrupar las secciones de la derecha */
+.contenido-principal {
+    flex: 1; /* Toma todo el espacio restante a la derecha del aside */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaciado entre filtros y videos */
+    min-width: 0; /* Previene desbordamientos horizontales en Flexbox */
+}
+
+/* =========================================
+   4. Componentes: Buscador y Navegación
+   ========================================= */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: clamp(5rem, 15vw, 6rem);
+}
+
+.buscador {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.buscador form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.buscador input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 999px 0 0 999px;
+    border: 1px solid var(--color-borde);
+    font-size: 1rem;
+    min-width: 0;
+}
+
+.buscador button {
+    border: 1px solid var(--color-borde);
+    border-left: none;
+    border-radius: 0 999px 999px 0;
+    background-color: var(--fondo-hover);
+    padding: 0 1.25rem;
+}
+
+.btn_menu,
+.btn_usuario,
+.buscador button {
+    cursor: pointer;
+    min-width: 44px; /* Área táctil accesible (WCAG) */
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.btn_menu,
+.btn_usuario {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.btn_menu:hover,
+.btn_usuario:hover,
+.buscador button:hover {
+    background-color: #e5e5e5;
+}
+
+.btn-secciones {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    list-style: none; 
+}
+
+/* =========================================
+   5. Componentes: Aside (Menú Lateral)
+   ========================================= */
+.sidebar {
+    flex: 0 0 220px;
+}
+
+.aside-desktop ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.aside-desktop li {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.aside-desktop li:hover {
+    background-color: var(--fondo-hover);
+}
+
+.aside-responsive {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.aside-responsive div {
+    padding: 0.75rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.aside-responsive div:hover {
+    background-color: var(--fondo-hover);
+}
+
+/* =========================================
+   6. Componentes: Grilla y Tarjetas de Video
+   ========================================= */
+.contenido {
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-videos {
+    max-width: 1600px; /* igual que YouTube */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.btn-secciones {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+}
+
+.btn-secciones::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar en Chrome/Safari */
+}
+
+.btn-secciones button {
+    background-color: var(--fondo-hover);
+    border: none;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secciones button:hover {
+    background-color: #e5e5e5;
+}
+
+.btn-secciones button.activo {
+    background-color: var(--fondo-activo);
+    color: var(--texto-activo);
+}
+
+.grilla-videos {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem 1rem;
+    padding-top: 1rem;
+    justify-content: center;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.thumbnail-link {
+    position: relative;
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: border-radius 0.2s ease;
+}
+
+.thumbnail-link:hover .thumbnail {
+    border-radius: 0;
+}
+
+.duracion {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 4px;
+    border-radius: 4px;
+}
+
+.video-info {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.video-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Trunca el texto a 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video-canal,
+.video-estadisticas {
+    font-size: 0.875rem;
+    color: var(--texto-gris);
+    line-height: 1.2;
+}
+
+.video-canal:hover {
+    color: var(--texto-principal);
+}
+
+/* =========================================
+   7. Media Queries (Responsive)
+   ========================================= */
+
+/* Pantallas medianas (Tablets) */
+@media (max-width: 1000px) {
+    .sidebar {
+        flex: 0 0 72px; /* Reducimos el ancho del sidebar a solo íconos */
+    }
+    .aside-desktop {
+        display: none;
+    }
+    .aside-responsive {
+        display: flex;
+    }
+}
+
+/* Pantallas pequeñas (Móviles) */
+@media (max-width: 600px) {
+    .header {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .buscador input {
+        display: none; /* Ocultamos la caja de texto, dejamos solo la lupa */
+    }
+
+    .buscador button {
+        border: none;
+        background: transparent;
+        padding: 0;
+    }
+
+    .buscador button:hover {
+        background: transparent;
+    }
+
+    .main {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .sidebar {
+        display: none; /* Ocultamos el sidebar por completo en móviles */
+    }
+
+    .grilla-videos {
+        grid-template-columns: 1fr; /* Una sola columna que ocupa todo el ancho */
+        gap: 1.5rem;
+    }
+}

@@ -5,39 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mitube</title>
     <meta name="description" content="Mitube: plataforma de videos inspirada en YouTube, creada como práctica de HTML y CSS para TP 5 de Diseño Web.">
-    
-    <meta name="author" content="Brenda">
+    <meta name="author" content="Brenda Tanoni">
     <meta name="theme-color" content="#ffffff">
     <meta property="og:title" content="Mitube">
     <meta property="og:description" content="Proyecto web inspirado en YouTube, hecho con HTML y CSS.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="img/preview.png">
     <link rel="icon" href="./img/youtube.ico" type="image/x-icon">
-    <!-- Logo Youtube: Youtube logo Icon by Darius Dan on <a href="https://icon-icons.com/authors/264-darius-dan">Icon-Icons.com</a> -->
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div class="menu">
+            <button class="btn_menu" type="button" aria-label="Abrir menú de navegación">
+                <img src="./img/menuhamburgueza.png" alt="Abrir menú">
+            </button>
 
+            <a href="/" class="logo">
+                <img src="./img/youtube.png" alt="Mitube, inicio">
+            </a>
         </div>
+
         <div class="buscador">
-
+            <form action="/" role="search">
+                <label for="buscar" class="sr-only">Buscar videos</label>
+                <input
+                    type="search"
+                    id="buscar"
+                    name="buscar"
+                    placeholder="Buscar"
+                    aria-label="Buscar videos"
+                >
+                <button type="submit" aria-label="Iniciar búsqueda">
+                    <img src="./img/lupa..png" alt="">
+                </button>
+            </form>
         </div>
+
         <div class="usuario">
-
+            <button type="button" class="btn_usuario" aria-label="Abrir opciones de usuario">
+                <img src="./img/usuario.png" alt="Perfil de usuario">
+            </button>
         </div>
-
     </header>
-    <main>
-        <aside>
 
-        </aside>
-        <section>
+    <main class="main">
+            <aside aria-label="Navegación principal" class="sidebar">
+                <div class="aside-responsive">
+                    <div id="icono-inicio"><img src="./img/inicio.png" alt="inicio"></div>
+                    <div id="icono-suscribir"><img src="./img/suscribir.png" alt="subscribir"></div>
+                </div>
+                <nav class="aside-desktop" aria-label="Menú de atajos">
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Shorts</a></li>
+                        <li><a href="#">Suscripciones</a></li>
+                        <li><a href="#">Historial</a></li>
+                        <li><a href="#">Me gusta</a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-        </section>
-    </main>
+            <div class="contenido-principal">
+                
+                <nav class="buscar-secciones" aria-label="Filtros de categorías">
+                    <ul class="btn-secciones">
+                        <li><button class="activo" aria-current="page">Todo</button></li>
+                        <li><button>En directo</button></li>
+                        <li><button>Música</button></li>
+                        <li><button>Podcast</button></li>
+                        <li><button>Recetas</button></li>
+                        </ul>
+                </nav>    
+
+                <section class="publicidad" aria-label="Anuncios"></section>
+
+                <section aria-label="Listado de videos" class="contenido">
+                    <div class="contenedor-videos">
+                        <div class="grilla-videos">
+                            
+                            <article class="video-card">
+                                <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" class="thumbnail-link" tabindex="-1" aria-hidden="true" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ytimg.com/vi/amrJc9_iBPQ/hqdefault.jpg" alt="" class="thumbnail" loading="lazy">
+                                    <span class="duracion">10:55</span>
+                                </a>
+                                <div class="video-info">
+                                    <a href="#" tabindex="-1" aria-hidden="true">
+                                        <img src="./img/usuario.png" alt="" class="avatar" loading="lazy">
+                                    </a>
+                                    <div class="video-texto">
+                                        <h3 class="video-titulo">
+                                            <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" target="_blank" rel="noopener noreferrer">
+                                                ESTA ES BRENDA; cantando susanita tiene un ratón...
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="video-canal">RICARDO VELARDEZ</a>
+                                        <p class="video-estadisticas">20.1 M de vistas &bull; hace 13 años</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="video-card">
+                                <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" class="thumbnail-link" tabindex="-1" aria-hidden="true" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ytimg.com/vi/amrJc9_iBPQ/hqdefault.jpg" alt="" class="thumbnail" loading="lazy">
+                                    <span class="duracion">10:55</span>
+                                </a>
+                                <div class="video-info">
+                                    <a href="#" tabindex="-1" aria-hidden="true">
+                                        <img src="./img/usuario.png" alt="" class="avatar" loading="lazy">
+                                    </a>
+                                    <div class="video-texto">
+                                        <h3 class="video-titulo">
+                                            <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" target="_blank" rel="noopener noreferrer">
+                                                ESTA ES BRENDA; cantando susanita tiene un ratón...
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="video-canal">RICARDO VELARDEZ</a>
+                                        <p class="video-estadisticas">20.1 M de vistas &bull; hace 13 años</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="video-card">
+                                <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" class="thumbnail-link" tabindex="-1" aria-hidden="true" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ytimg.com/vi/amrJc9_iBPQ/hqdefault.jpg" alt="" class="thumbnail" loading="lazy">
+                                    <span class="duracion">10:55</span>
+                                </a>
+                                <div class="video-info">
+                                    <a href="#" tabindex="-1" aria-hidden="true">
+                                        <img src="./img/usuario.png" alt="" class="avatar" loading="lazy">
+                                    </a>
+                                    <div class="video-texto">
+                                        <h3 class="video-titulo">
+                                            <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" target="_blank" rel="noopener noreferrer">
+                                                ESTA ES BRENDA; cantando susanita tiene un ratón...
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="video-canal">RICARDO VELARDEZ</a>
+                                        <p class="video-estadisticas">20.1 M de vistas &bull; hace 13 años</p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="video-card">
+                                <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" class="thumbnail-link" tabindex="-1" aria-hidden="true" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ytimg.com/vi/amrJc9_iBPQ/hqdefault.jpg" alt="" class="thumbnail" loading="lazy">
+                                    <span class="duracion">10:55</span>
+                                </a>
+                                <div class="video-info">
+                                    <a href="#" tabindex="-1" aria-hidden="true">
+                                        <img src="./img/usuario.png" alt="" class="avatar" loading="lazy">
+                                    </a>
+                                    <div class="video-texto">
+                                        <h3 class="video-titulo">
+                                            <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" target="_blank" rel="noopener noreferrer">
+                                                ESTA ES BRENDA; cantando susanita tiene un ratón...
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="video-canal">RICARDO VELARDEZ</a>
+                                        <p class="video-estadisticas">20.1 M de vistas &bull; hace 13 años</p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="video-card">
+                                <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" class="thumbnail-link" tabindex="-1" aria-hidden="true" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ytimg.com/vi/amrJc9_iBPQ/hqdefault.jpg" alt="" class="thumbnail" loading="lazy">
+                                    <span class="duracion">10:55</span>
+                                </a>
+                                <div class="video-info">
+                                    <a href="#" tabindex="-1" aria-hidden="true">
+                                        <img src="./img/usuario.png" alt="" class="avatar" loading="lazy">
+                                    </a>
+                                    <div class="video-texto">
+                                        <h3 class="video-titulo">
+                                            <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" target="_blank" rel="noopener noreferrer">
+                                                ESTA ES BRENDA; cantando susanita tiene un ratón...
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="video-canal">RICARDO VELARDEZ</a>
+                                        <p class="video-estadisticas">20.1 M de vistas &bull; hace 13 años</p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="video-card">
+                                <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" class="thumbnail-link" tabindex="-1" aria-hidden="true" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ytimg.com/vi/amrJc9_iBPQ/hqdefault.jpg" alt="" class="thumbnail" loading="lazy">
+                                    <span class="duracion">10:55</span>
+                                </a>
+                                <div class="video-info">
+                                    <a href="#" tabindex="-1" aria-hidden="true">
+                                        <img src="./img/usuario.png" alt="" class="avatar" loading="lazy">
+                                    </a>
+                                    <div class="video-texto">
+                                        <h3 class="video-titulo">
+                                            <a href="https://www.youtube.com/watch?v=amrJc9_iBPQ" target="_blank" rel="noopener noreferrer">
+                                                ESTA ES BRENDA; cantando susanita tiene un ratón...
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="video-canal">RICARDO VELARDEZ</a>
+                                        <p class="video-estadisticas">20.1 M de vistas &bull; hace 13 años</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
 </body>
 </html>
